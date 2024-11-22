@@ -1,6 +1,6 @@
 
 
-setwd("C:/Users/Administrator/Desktop/XGboost TDLP/R1015")
+setwd("xxx")
 
 library(corrplot) 
 library(glmnet) 
@@ -23,7 +23,7 @@ library(randomForest)
 rm(list=ls())
 
 library(readxl)
-data <- read_excel("C:/Users/Administrator/Desktop/XGboost TDLP/R1015/R1015.xlsx")
+data <- read_excel("xxxx")
 View(data)
 
 
