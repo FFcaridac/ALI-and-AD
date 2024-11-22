@@ -15,17 +15,15 @@ library(pROC)
 library(viridis)
 
 library(readxl)
-data <- read_excel("C:/Users/79871/Desktop/ALI/DATA/Routcome.xlsx")
+data <- read_excel("XXX.xlsx")
 
-##data <- read_excel("C:/Users/79871/Desktop/0814IL10/data1011.xlsx")
+
 
 View(data)
 
-setwd("C:/Users/79871/Desktop/ALI/R1016")
+setwd("xxxx")
 
-##setwd("C:/Users/79871/Desktop/0814IL10/R1011")
 
-#数据整理：主要靠Excel，导入后做轻微设置改动####
 
 head(data)
 #设置因子型
