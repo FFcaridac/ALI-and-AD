@@ -13,7 +13,7 @@ library(shiny)
 library(regplot)
 
 library(readxl)
-mydata <- read_excel("C:/Users/79871/Desktop/ALI/Data/datanomoALI.xlsx")
+mydata <- read_excel("XXXXXXXXX.xlsx")
 View(mydata)
 
 dev <- train
@@ -26,7 +26,7 @@ dev<- na.omit(dev)
 dev <- as.data.frame(dev)
 dim(dev)
 
-##设置因素变量
+##Set the variables
 dev$diagnosis <- factor(dev$diagnosis,labels = c("alive","dead"))
 dev$age. <- factor(dev$age.,labels = c("<56",">=56"))
 dev$Lym. <- factor(dev$Lym.,labels = c("<0.60",">=0.60"))
@@ -35,7 +35,7 @@ dev$Venti. <- factor(dev$Venti.,labels = c("<62",">=62"))
 dev$CRRT <- factor(dev$CRRT, labels = c("normal","need CRRT"))
 
 
-##构建模型
+##Develope the model
 modelD <-glm(diagnosis ~ age.+Lym.+CPB.+CRRT+Venti.+IL10, family = binomial,
              data = dev)
 
@@ -43,13 +43,13 @@ modelD <-glm(diagnosis ~ age.+Lym.+CPB.+CRRT+Venti.+IL10, family = binomial,
 ##install.packages("fastmap", version = "1.2.0")
 ##install.packages("fastmap")
 library(fastmap)
-##绘制动态列线图
+##Draw a dynamic nomogram
 DynNom(modelD,
        DNtitle = "Nomogram",
        DNxlab = "probability",
        data = dev)
 
-mydata <- read_excel("C:/Users/79871/Desktop/0814IL10/datanomo.xlsx")
+mydata <- read_excel(XXX.xlsx")
 
 mydata$status <- factor(mydata$status,labels = c("alive","dead"))
 mydata$age <- factor(mydata$age,labels = c("<56","≥56"))
@@ -102,36 +102,14 @@ regplot(Nomogram_2,
         boxcol = "skyblue"
         )
 
-##动态列线图
-
-Nomogram_3 <- glm(formula, data = mydata, family= binomial)
 
 
 
-DynNom(Nomogram_3,
-       clevel = 0.95,
-       DNtitle = "Nomogram",
-       DNxlab = "probability",
-       DNylab = NULL,
-       )
-
-##报错 'names'属性的长度[4]必需和矢量的长度[3]一样
-
-DNbuilder(Nomogram_3,covariate = "numeric") 
-DynNom(Nomogram_3,mydata)
-
-
-#######################
-###################
-################
-################
-
-
-####Shinyapps*.左手python右手R*R语言制作动态网页列线图
+####Shinyapps*
 
 
 setwd("D:/R work/DynNomapp")
-data <- read_excel("C:/Users/79871/Desktop/ALI/Data/datanomoALI.xlsx")
+data <- read_excel("XXXXX.xlsx")
 
 data$BMI <- factor(data$BMI,
                     levels =c(0,1),
@@ -157,11 +135,11 @@ DNbuilder(fit.glm,
 ##install.packages("rsconnect")
 library(rsconnect)
 
-rsconnect::setAccountInfo(name='ffcardic', token='7707EB7BCC89D5D3D77F3E51882ECA91', secret='ux7ursZ9RUlJsaXpdBx4S0EXXn/YV1+5eT4ColLv')
+rsconnect::setAccountInfo(name='XX', token='XX', secret='XX')
 accounts(server = NULL)
 
 dir <- getwd()
 path <- paste0(dir,"/DynNomapp",collapse = "")
 path
 
-rsconnect::deployApp("C:/Users/79871/Desktop/ALI/R1016/DynNomapp")  ##把path显示的地址copy进去
+rsconnect::deployApp("XXXX")  ##
